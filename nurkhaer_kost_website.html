@@ -1,0 +1,1535 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NURKHAER KOST - Hunian Nyaman, Bersih & Strategis</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind Custom Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        /* Maroon / merah bata — diambil dari warna pilar & pagar bangunan */
+                        primary: {
+                            50: '#fdf5f4',
+                            100: '#fae7e5',
+                            200: '#f4cdc9',
+                            300: '#e8a79f',
+                            400: '#d47a6f',
+                            500: '#b04a3e',
+                            600: '#8f3428',
+                            700: '#742a20',
+                            800: '#5c221a',
+                            900: '#4a1d17',
+                            950: '#2b0f0c',
+                        },
+                        /* Aksen kuningan / emas untuk kesan mewah */
+                        accent: {
+                            50: '#fdfaf0',
+                            100: '#f9f0d7',
+                            200: '#f0dfa9',
+                            300: '#e3c874',
+                            400: '#d4ae4a',
+                            500: '#c09330',
+                            600: '#a17726',
+                            700: '#7e5b20',
+                            800: '#5f441d',
+                            900: '#4a361a',
+                        },
+                        /* Hitam besi tempa */
+                        iron: {
+                            700: '#2f2c2a',
+                            800: '#211f1d',
+                            900: '#171514',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+                        display: ['Playfair Display', 'Georgia', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .glass-nav {
+            background: rgba(255, 253, 252, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .custom-shadow {
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
+        }
+        .modal-active {
+            overflow: hidden;
+        }
+        /* Garis emas tipis sebagai aksen mewah di bawah navbar */
+        .gold-rule {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #c09330 20%, #e3c874 50%, #c09330 80%, transparent);
+        }
+        .font-display {
+            letter-spacing: -0.015em;
+        }
+        /* Ornamen pemisah bergaya besi tempa */
+        .iron-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            color: #c09330;
+        }
+        .iron-divider::before,
+        .iron-divider::after {
+            content: "";
+            height: 1px;
+            width: 3.5rem;
+            background: linear-gradient(90deg, transparent, currentColor);
+        }
+        .iron-divider::after {
+            background: linear-gradient(90deg, currentColor, transparent);
+        }
+    </style>
+</head>
+<body class="font-sans bg-stone-50 text-stone-800 antialiased selection:bg-primary-500 selection:text-white">
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-40 w-full glass-nav border-b border-stone-200/80 transition-all duration-300" id="navbar">
+        <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Brand Logo -->
+                <a href="#beranda" class="flex items-center gap-3 group">
+                    <div class="w-11 h-11 bg-gradient-to-tr from-primary-700 to-primary-500 rounded-xl flex items-center justify-center text-accent-300 text-xl font-bold shadow-md shadow-primary-800/20 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid font-bold fa-house-user"></i>
+                    </div>
+                    <div>
+                        <span class="font-display text-xl font-bold tracking-tight text-stone-900 block leading-none whitespace-nowrap">NURKHAER KOST</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden lg:flex items-center gap-1 xl:gap-2">
+                    <a href="#beranda" class="px-4 py-2 rounded-lg text-sm font-semibold text-stone-700 hover:text-primary-600 hover:bg-stone-100/80 transition-all">Beranda</a>
+                    <a href="#kamar" class="px-4 py-2 rounded-lg text-sm font-semibold text-stone-700 hover:text-primary-600 hover:bg-stone-100/80 transition-all">Pilihan Kamar</a>
+                    <a href="#fasilitas" class="px-4 py-2 rounded-lg text-sm font-semibold text-stone-700 hover:text-primary-600 hover:bg-stone-100/80 transition-all">Fasilitas</a>
+                    <a href="#tentang" class="px-4 py-2 rounded-lg text-sm font-semibold text-stone-700 hover:text-primary-600 hover:bg-stone-100/80 transition-all">Tentang Kami</a>
+                    <a href="#kontak" class="px-4 py-2 rounded-lg text-sm font-semibold text-stone-700 hover:text-primary-600 hover:bg-stone-100/80 transition-all">Lokasi & Kontak</a>
+                </nav>
+
+                <!-- Action Button -->
+                <div class="hidden lg:flex items-center gap-2">
+                    <a href="https://wa.me/6285742498196?text=Halo%20Pengelola%20NURKHAER%20KOST,%20saya%20ingin%20bertanya%20mengenai%20ketersediaan%20kamar."
+                       target="_blank"
+                       class="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white font-semibold px-5 py-2.5 rounded-full text-sm shadow-md shadow-primary-600/25 transition-all hover:-translate-y-0.5">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>Hubungi Pemilik</span>
+                    </a>
+
+                    <!-- Tombol Login / Panel Pengelola -->
+                    <button onclick="handleAdminEntry()" id="login-nav-btn"
+                            class="inline-flex items-center gap-2 border border-stone-300 hover:border-primary-500 hover:text-primary-600 text-stone-700 font-semibold px-4 py-2.5 rounded-full text-sm bg-white transition-all">
+                        <i class="fa-solid fa-lock text-sm" id="login-nav-icon"></i>
+                        <span id="login-nav-label">Login Pengelola</span>
+                    </button>
+                </div>
+
+                <!-- Mobile Hamburger Button -->
+                <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg text-stone-600 hover:text-stone-900 hover:bg-stone-100 focus:outline-none">
+                    <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-stone-200 px-4 pt-2 pb-6 space-y-2">
+            <a href="#beranda" class="mobile-nav-link block px-4 py-2.5 rounded-lg text-base font-semibold text-stone-700 hover:bg-primary-50 hover:text-primary-600">Beranda</a>
+            <a href="#kamar" class="mobile-nav-link block px-4 py-2.5 rounded-lg text-base font-semibold text-stone-700 hover:bg-primary-50 hover:text-primary-600">Daftar Kamar</a>
+            <a href="#fasilitas" class="mobile-nav-link block px-4 py-2.5 rounded-lg text-base font-semibold text-stone-700 hover:bg-primary-50 hover:text-primary-600">Fasilitas</a>
+            <a href="#tentang" class="mobile-nav-link block px-4 py-2.5 rounded-lg text-base font-semibold text-stone-700 hover:bg-primary-50 hover:text-primary-600">Tentang Kami</a>
+            <a href="#kontak" class="mobile-nav-link block px-4 py-2.5 rounded-lg text-base font-semibold text-stone-700 hover:bg-primary-50 hover:text-primary-600">Kontak & Lokasi</a>
+            <div class="pt-4 border-t border-stone-100 space-y-2">
+                <a href="https://wa.me/6285742498196?text=Halo%20Pengelola%20NURKHAER%20KOST,%20saya%20ingin%20bertanya%20mengenai%20ketersediaan%20kamar."
+                   target="_blank"
+                   class="w-full flex items-center justify-center gap-2 bg-primary-600 hover:bg-primary-700 text-white font-semibold px-4 py-3 rounded-xl text-sm shadow-md shadow-primary-600/20">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>Tanya Via WhatsApp</span>
+                </a>
+                <button onclick="handleAdminEntry()"
+                        class="w-full flex items-center justify-center gap-2 border border-stone-300 text-stone-700 hover:border-primary-500 hover:text-primary-600 font-semibold px-4 py-3 rounded-xl text-sm bg-white transition-all">
+                    <i class="fa-solid fa-lock text-sm" id="login-nav-icon-mobile"></i>
+                    <span id="login-nav-label-mobile">Login Pengelola</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Aksen garis emas -->
+        <div class="gold-rule"></div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="beranda" class="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden bg-gradient-to-b from-primary-50 via-stone-50 to-white">
+        <!-- Background Elements -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1600px] h-full overflow-hidden pointer-events-none -z-10">
+            <div class="absolute -top-40 right-10 w-96 h-96 bg-primary-200/50 rounded-full blur-3xl"></div>
+            <div class="absolute top-60 -left-20 w-80 h-80 bg-accent-200/40 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Hero Content -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 bg-primary-100/80 border border-primary-200 text-primary-800 px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold shadow-sm">
+                        <span class="flex h-2 w-2 rounded-full bg-primary-600 animate-pulse"></span>
+                        Hunian Strategis, Aman & Terjangkau
+                    </div>
+
+                    <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-stone-900 tracking-tight leading-tight">
+                        Kenyamanan Berada Di <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-700 to-primary-500">NURKHAER KOST</span>
+                    </h1>
+
+                    <p class="text-lg text-stone-600 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                        Pilihan tepat bagi mahasiswa, dan karyawan tempat tinggal bersih, aman, fasilitas lengkap, serta dekat dengan Kampus dan Dinas.
+                    </p>
+
+                    <!-- Hero Call to Action Buttons -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#kamar" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-primary-600 hover:bg-primary-700 text-white font-bold px-8 py-3.5 rounded-xl shadow-lg shadow-primary-600/30 transition-all hover:-translate-y-0.5">
+                            <i class="fa-solid fa-bed text-lg"></i>
+                            <span>Cek Kamar Tersedia</span>
+                        </a>
+                        <a href="https://wa.me/6285742498196?text=Halo%20NURKHAER%20KOST,%20saya%20tertarik%20untuk%20survey%20lokasi%20kost." target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white border border-stone-300 hover:bg-stone-50 text-stone-700 font-semibold px-8 py-3.5 rounded-xl shadow-sm transition-all hover:border-stone-400">
+                            <i class="fa-brands fa-whatsapp text-emerald-600 text-lg"></i>
+                            <span>Jadwal Survey Kos</span>
+                        </a>
+                    </div>
+
+                    <!-- Highlights Stat Badges -->
+                    <div class="grid grid-cols-3 gap-4 pt-8 border-t border-stone-200/80">
+                        <div class="text-center lg:text-left">
+                            <p class="text-xl sm:text-2xl lg:text-3xl leading-tight font-extrabold text-stone-900">24 Jam</p>
+                            <p class="text-xs sm:text-sm text-stone-500 font-medium">Keamanan CCTV</p>
+                        </div>
+                        <div class="text-center lg:text-left">
+                            <p class="text-xl sm:text-2xl lg:text-3xl leading-tight font-extrabold text-stone-900">Up To 100 Mbps</p>
+                            <p class="text-xs sm:text-sm text-stone-500 font-medium">Wifi Free</p>
+                        </div>
+                        <div class="text-center lg:text-left">
+                            <p class="text-xl sm:text-2xl lg:text-3xl leading-tight font-extrabold text-primary-600">Strategis</p>
+                            <p class="text-xs sm:text-sm text-stone-500 font-medium">Dekat Kampus, Samsat Slawi & Dinas PUPR Kab. Tegal</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Image Visual Showcase -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <!-- Main Card Showcase -->
+                        <div class="relative z-10 rounded-2xl overflow-hidden shadow-2xl border-4 border-white bg-white">
+                            <div class="relative overflow-hidden">
+                                <img src="images/hero-nurkhaer.jpg"
+                                     alt="Tampak depan bangunan NURKHAER KOST dengan pagar besi tempa"
+                                     class="w-full h-72 sm:h-80 xl:h-[360px] object-cover transform hover:scale-105 transition-transform duration-500">
+
+                                <!-- Badge Lingkungan Aman: menempel di atas foto agar tidak menutupi judul -->
+                                <div class="absolute bottom-2.5 left-2.5 inline-flex items-center gap-2 bg-white/90 backdrop-blur-md px-2.5 py-1.5 rounded-lg shadow-md border border-white/70">
+                                    <div class="w-6 h-6 rounded-md bg-primary-100 text-primary-600 flex items-center justify-center text-[11px] shrink-0">
+                                        <i class="fa-solid fa-shield-halved"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-[11px] font-bold text-stone-900 leading-tight">Lingkungan Aman</h4>
+                                        <p class="text-[9px] text-stone-600 leading-tight">Berpagar, area tenang & bebas banjir</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="p-5 bg-white">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="px-3 py-1 bg-accent-100 text-accent-800 text-xs font-bold rounded-full uppercase tracking-wider">Tampak Depan</span>
+                                    <span class="text-sm font-semibold text-stone-500"><i class="fa-solid fa-location-dot text-primary-600 mr-1"></i> Lokasi Nyaman</span>
+                                </div>
+                                <h3 class="font-display text-xl font-bold text-stone-900">NURKHAER KOST</h3>
+                                <p class="text-sm text-stone-500 mt-1">Bangunan baru, tempat parkir & akses jalan mudah.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FASILITAS UMUM / COMMON FACILITIES SECTION -->
+    <section class="py-16 bg-white border-y border-stone-200/60">
+        <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-xs font-extrabold uppercase tracking-widest text-primary-600 mb-2">Fasilitas Bersama</h2>
+                <p class="font-display text-3xl font-bold text-stone-900 sm:text-4xl">Fasilitas Umum</p>
+                <div class="iron-divider mt-4"><i class="fa-solid fa-diamond text-[8px]"></i></div>
+                <p class="text-stone-600 mt-3 text-base">Seluruh fasilitas berikut dapat digunakan bebas oleh setiap penghuni NURKHAER KOST.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+
+                <!-- Free Air -->
+                <div class="p-6 rounded-2xl bg-stone-50 border border-stone-200/70 hover:border-primary-500/50 hover:shadow-lg transition-all group">
+                    <div class="w-14 h-14 bg-primary-100 text-primary-600 rounded-xl flex items-center justify-center text-2xl mb-5 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-shower"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-stone-900 mb-2">Free Air</h3>
+                    <p class="text-sm text-stone-600 leading-relaxed">Air bersih mengalir lancar sepanjang hari tanpa biaya tambahan bagi seluruh penghuni.</p>
+                </div>
+
+                <!-- Dapur Umum -->
+                <div class="p-6 rounded-2xl bg-stone-50 border border-stone-200/70 hover:border-primary-500/50 hover:shadow-lg transition-all group">
+                    <div class="w-14 h-14 bg-primary-100 text-primary-600 rounded-xl flex items-center justify-center text-2xl mb-5 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-kitchen-set"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-stone-900 mb-2">Dapur Umum</h3>
+                    <p class="text-sm text-stone-600 leading-relaxed">Dapur bersama dengan kompor gas, dan wastafel untuk kebutuhan memasak harian.</p>
+                </div>
+
+                <!-- Ruang Tamu -->
+                <div class="p-6 rounded-2xl bg-stone-50 border border-stone-200/70 hover:border-primary-500/50 hover:shadow-lg transition-all group">
+                    <div class="w-14 h-14 bg-primary-100 text-primary-600 rounded-xl flex items-center justify-center text-2xl mb-5 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-couch"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-stone-900 mb-2">Ruang Tamu</h3>
+                    <p class="text-sm text-stone-600 leading-relaxed">Ruang bersama yang nyaman untuk menerima tamu maupun bersantai dengan sesama penghuni.</p>
+                </div>
+
+                <!-- Parkir Motor -->
+                <div class="p-6 rounded-2xl bg-stone-50 border border-stone-200/70 hover:border-primary-500/50 hover:shadow-lg transition-all group">
+                    <div class="w-14 h-14 bg-primary-100 text-primary-600 rounded-xl flex items-center justify-center text-2xl mb-5 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-motorcycle"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-stone-900 mb-2">Parkir Motor</h3>
+                    <p class="text-sm text-stone-600 leading-relaxed">Area parkir berada dalam jangkauan pantauan kamera keamanan.</p>
+                </div>
+
+                <!-- CCTV 24 Jam -->
+                <div class="p-6 rounded-2xl bg-stone-50 border border-stone-200/70 hover:border-primary-500/50 hover:shadow-lg transition-all group">
+                    <div class="w-14 h-14 bg-primary-100 text-primary-600 rounded-xl flex items-center justify-center text-2xl mb-5 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-video"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-stone-900 mb-2">CCTV 24 Jam</h3>
+                    <p class="text-sm text-stone-600 leading-relaxed">Kamera pengawas aktif sepanjang hari.</p>
+                </div>
+
+                <!-- Free Wifi -->
+                <div class="p-6 rounded-2xl bg-stone-50 border border-stone-200/70 hover:border-primary-500/50 hover:shadow-lg transition-all group">
+                    <div class="w-14 h-14 bg-primary-100 text-primary-600 rounded-xl flex items-center justify-center text-2xl mb-5 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-wifi"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-stone-900 mb-2">Free Wifi</h3>
+                    <p class="text-sm text-stone-600 leading-relaxed">Koneksi internet up to 100 Mbps, gratis dan tanpa batasan kuota pemakaian.</p>
+                </div>
+
+                <!-- Area Jemur Baju -->
+                <div class="p-6 rounded-2xl bg-stone-50 border border-stone-200/70 hover:border-primary-500/50 hover:shadow-lg transition-all group">
+                    <div class="w-14 h-14 bg-primary-100 text-primary-600 rounded-xl flex items-center justify-center text-2xl mb-5 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-shirt"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-stone-900 mb-2">Area Jemur Baju</h3>
+                    <p class="text-sm text-stone-600 leading-relaxed">Area cuci dan jemur pakaian.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- DAFTAR KAMAR / ROOM LISTINGS SECTION -->
+    <section id="kamar" class="py-20 bg-stone-50">
+        <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <h2 class="text-xs font-extrabold uppercase tracking-widest text-primary-600 mb-2">Pilihan Akomodasi</h2>
+                <p class="font-display text-3xl font-bold text-stone-900 sm:text-4xl">Daftar Kamar Yang Tersedia</p>
+                <div class="iron-divider mt-4"><i class="fa-solid fa-diamond text-[8px]"></i></div>
+                <p class="text-stone-600 mt-3 text-base">Pilih tipe kamar yang sesuai dengan kebutuhan dan anggaran Anda.</p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap items-center justify-center gap-2 mb-10" id="room-filters">
+                <button onclick="filterRooms('all')" class="filter-btn active bg-primary-600 text-white font-semibold px-5 py-2.5 rounded-full text-sm transition-all shadow-sm" data-category="all">Semua Kamar</button>
+                <button onclick="filterRooms('tersedia')" class="filter-btn bg-white hover:bg-stone-100 text-stone-700 font-semibold px-5 py-2.5 rounded-full text-sm border border-stone-200 transition-all" data-category="tersedia">Status: Tersedia</button>
+                <button onclick="filterRooms('ac')" class="filter-btn bg-white hover:bg-stone-100 text-stone-700 font-semibold px-5 py-2.5 rounded-full text-sm border border-stone-200 transition-all" data-category="ac">Ber-AC</button>
+                <button onclick="filterRooms('km-dalam')" class="filter-btn bg-white hover:bg-stone-100 text-stone-700 font-semibold px-5 py-2.5 rounded-full text-sm border border-stone-200 transition-all" data-category="km-dalam">KM Dalam</button>
+            </div>
+
+            <!-- Rooms Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="rooms-container">
+
+                <!-- Room 1 -->
+                <div class="room-card bg-white rounded-2xl overflow-hidden border border-stone-200/80 shadow-md hover:shadow-xl transition-all flex flex-col" data-room-id="1" data-status="tersedia ac km-dalam" data-tags="ac km-dalam tersedia">
+                    <div class="relative h-60 overflow-hidden group">
+                        <img src="https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=700&q=80" alt="Kamar Tipe VIP Executive" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="room-status-badge absolute top-4 left-4 bg-emerald-500 text-white text-xs font-bold px-3 py-1.5 rounded-full uppercase shadow-md">Tersedia</span>
+                        <span class="absolute top-4 right-4 bg-stone-900/80 backdrop-blur-md text-white text-xs font-semibold px-3 py-1.5 rounded-full">3.5 x 4.0 m</span>
+                    </div>
+
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-semibold text-primary-600 uppercase tracking-wider">Tipe A - Deluxe</span>
+                                <span class="text-xs text-stone-400 font-medium"><i class="fa-solid fa-layer-group"></i> Lantai 1</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-stone-900 mb-2">Kamar VIP AC + KM Dalam</h3>
+                            <p class="text-stone-600 text-sm mb-4 line-clamp-2">Kamar luas dengan pencahayaan alami yang baik, dilengkapi pendingin ruangan dan air panas.</p>
+
+                            <!-- Mini Facility Icons -->
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="inline-flex items-center gap-1.5 text-xs bg-stone-100 text-stone-700 px-2.5 py-1 rounded-md font-medium"><i class="fa-solid fa-snowflake text-primary-600"></i> AC</span>
+                                <span class="inline-flex items-center gap-1.5 text-xs bg-stone-100 text-stone-700 px-2.5 py-1 rounded-md font-medium"><i class="fa-solid fa-bath text-primary-600"></i> KM Dalam</span>
+                                <span class="inline-flex items-center gap-1.5 text-xs bg-stone-100 text-stone-700 px-2.5 py-1 rounded-md font-medium"><i class="fa-solid fa-wifi text-primary-600"></i> Wi-Fi</span>
+                                <span class="inline-flex items-center gap-1.5 text-xs bg-stone-100 text-stone-700 px-2.5 py-1 rounded-md font-medium"><i class="fa-solid fa-bed text-accent-600"></i> Springbed</span>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-stone-100 flex items-center justify-between">
+                            <div>
+                                <span class="text-xs text-stone-400 block font-medium">Harga Sewa</span>
+                                <span class="text-lg font-extrabold text-stone-900"><span class="room-price">Rp 1.500.000</span> <span class="text-xs font-normal text-stone-500">/ bln</span></span>
+                            </div>
+                            <button onclick="openRoomModal(1)" class="inline-flex items-center gap-1 text-sm font-bold text-primary-600 hover:text-primary-700 bg-primary-50 hover:bg-primary-100 px-4 py-2 rounded-xl transition-colors">
+                                Detail <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Room 2 -->
+                <div class="room-card bg-white rounded-2xl overflow-hidden border border-stone-200/80 shadow-md hover:shadow-xl transition-all flex flex-col" data-room-id="2" data-status="tersedia ac km-dalam" data-tags="ac km-dalam tersedia">
+                    <div class="relative h-60 overflow-hidden group">
+                        <img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=700&q=80" alt="Kamar Tipe Standard AC" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="room-status-badge absolute top-4 left-4 bg-emerald-500 text-white text-xs font-bold px-3 py-1.5 rounded-full uppercase shadow-md">Tersedia</span>
+                        <span class="absolute top-4 right-4 bg-stone-900/80 backdrop-blur-md text-white text-xs font-semibold px-3 py-1.5 rounded-full">3.0 x 3.5 m</span>
+                    </div>
+
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-semibold text-primary-600 uppercase tracking-wider">Tipe B - Standard</span>
+                                <span class="text-xs text-stone-400 font-medium"><i class="fa-solid fa-layer-group"></i> Lantai 2</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-stone-900 mb-2">Kamar Standard AC Minimalis</h3>
+                            <p class="text-stone-600 text-sm mb-4 line-clamp-2">Desain bersih dan modern dengan meja belajar terintegrasi. Cocok untuk mahasiswa & pekerja.</p>
+
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="inline-flex items-center gap-1.5 text-xs bg-stone-100 text-stone-700 px-2.5 py-1 rounded-md font-medium"><i class="fa-solid fa-snowflake text-primary-600"></i> AC</span>
+                                <span class="inline-flex items-center gap-1.5 text-xs bg-stone-100 text-stone-700 px-2.5 py-1 rounded-md font-medium"><i class="fa-solid fa-bath text-primary-600"></i> KM Dalam</span>
+                                <span class="inline-flex items-center gap-1.5 text-xs bg-stone-100 text-stone-700 px-2.5 py-1 rounded-md font-medium"><i class="fa-solid fa-wifi text-primary-600"></i> Wi-Fi</span>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-stone-100 flex items-center justify-between">
+                            <div>
+                                <span class="text-xs text-stone-400 block font-medium">Harga Sewa</span>
+                                <span class="text-lg font-extrabold text-stone-900"><span class="room-price">Rp 1.200.000</span> <span class="text-xs font-normal text-stone-500">/ bln</span></span>
+                            </div>
+                            <button onclick="openRoomModal(2)" class="inline-flex items-center gap-1 text-sm font-bold text-primary-600 hover:text-primary-700 bg-primary-50 hover:bg-primary-100 px-4 py-2 rounded-xl transition-colors">
+                                Detail <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Room 3 -->
+                <div class="room-card bg-white rounded-2xl overflow-hidden border border-stone-200/80 shadow-md hover:shadow-xl transition-all flex flex-col" data-room-id="3" data-status="tersedia km-luar" data-tags="tersedia">
+                    <div class="relative h-60 overflow-hidden group">
+                        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=700&q=80" alt="Kamar Tipe Hemat Kipas" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="room-status-badge absolute top-4 left-4 bg-emerald-500 text-white text-xs font-bold px-3 py-1.5 rounded-full uppercase shadow-md">Tersedia</span>
+                        <span class="absolute top-4 right-4 bg-stone-900/80 backdrop-blur-md text-white text-xs font-semibold px-3 py-1.5 rounded-full">3.0 x 3.0 m</span>
+                    </div>
+
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-semibold text-primary-600 uppercase tracking-wider">Tipe C - Hemat</span>
+                                <span class="text-xs text-stone-400 font-medium"><i class="fa-solid fa-layer-group"></i> Lantai 2</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-stone-900 mb-2">Kamar Standard Non-AC</h3>
+                            <p class="text-stone-600 text-sm mb-4 line-clamp-2">Pilihan hemat dengan sirkulasi udara sejuk, fasilitas lengkap dan lingkungan tenang.</p>
+
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="inline-flex items-center gap-1.5 text-xs bg-stone-100 text-stone-700 px-2.5 py-1 rounded-md font-medium"><i class="fa-solid fa-fan text-accent-600"></i> Kipas Angin</span>
+                                <span class="inline-flex items-center gap-1.5 text-xs bg-stone-100 text-stone-700 px-2.5 py-1 rounded-md font-medium"><i class="fa-solid fa-wifi text-primary-600"></i> Wi-Fi</span>
+                                <span class="inline-flex items-center gap-1.5 text-xs bg-stone-100 text-stone-700 px-2.5 py-1 rounded-md font-medium"><i class="fa-solid fa-toilet text-stone-500"></i> KM Luar</span>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-stone-100 flex items-center justify-between">
+                            <div>
+                                <span class="text-xs text-stone-400 block font-medium">Harga Sewa</span>
+                                <span class="text-lg font-extrabold text-stone-900"><span class="room-price">Rp 850.000</span> <span class="text-xs font-normal text-stone-500">/ bln</span></span>
+                            </div>
+                            <button onclick="openRoomModal(3)" class="inline-flex items-center gap-1 text-sm font-bold text-primary-600 hover:text-primary-700 bg-primary-50 hover:bg-primary-100 px-4 py-2 rounded-xl transition-colors">
+                                Detail <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Room 4 (Penuh) -->
+                <div class="room-card bg-white rounded-2xl overflow-hidden border border-stone-200/80 shadow-md hover:shadow-xl transition-all flex flex-col opacity-90" data-room-id="4" data-status="penuh ac km-dalam" data-tags="ac km-dalam penuh">
+                    <div class="relative h-60 overflow-hidden group">
+                        <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=700&q=80" alt="Kamar Balkon" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 grayscale-[20%]">
+                        <span class="room-status-badge absolute top-4 left-4 bg-stone-800 text-white text-xs font-bold px-3 py-1.5 rounded-full uppercase shadow-md">Penuh / Tersewa</span>
+                        <span class="absolute top-4 right-4 bg-stone-900/80 backdrop-blur-md text-white text-xs font-semibold px-3 py-1.5 rounded-full">4.0 x 4.0 m</span>
+                    </div>
+
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-semibold text-stone-500 uppercase tracking-wider">Tipe Suite - Balkon</span>
+                                <span class="text-xs text-stone-400 font-medium"><i class="fa-solid fa-layer-group"></i> Lantai 2</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-stone-900 mb-2">Kamar Exclusive + Balkon Pribadi</h3>
+                            <p class="text-stone-600 text-sm mb-4 line-clamp-2">Kamar tipe suite terluas dengan pemandangan kota dan balkon santai pribadi.</p>
+
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="inline-flex items-center gap-1.5 text-xs bg-stone-100 text-stone-700 px-2.5 py-1 rounded-md font-medium"><i class="fa-solid fa-snowflake text-primary-600"></i> AC</span>
+                                <span class="inline-flex items-center gap-1.5 text-xs bg-stone-100 text-stone-700 px-2.5 py-1 rounded-md font-medium"><i class="fa-solid fa-bath text-primary-600"></i> KM Dalam</span>
+                                <span class="inline-flex items-center gap-1.5 text-xs bg-stone-100 text-stone-700 px-2.5 py-1 rounded-md font-medium"><i class="fa-solid fa-tree text-primary-600"></i> Balkon</span>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-stone-100 flex items-center justify-between">
+                            <div>
+                                <span class="text-xs text-stone-400 block font-medium">Harga Sewa</span>
+                                <span class="text-lg font-extrabold text-stone-900"><span class="room-price">Rp 1.800.000</span> <span class="text-xs font-normal text-stone-500">/ bln</span></span>
+                            </div>
+                            <button onclick="openRoomModal(4)" class="inline-flex items-center gap-1 text-sm font-bold text-stone-600 hover:text-stone-800 bg-stone-100 hover:bg-stone-200 px-4 py-2 rounded-xl transition-colors">
+                                Detail <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FASILITAS / AMENITIES SECTION -->
+    <section id="fasilitas" class="py-20 bg-white">
+        <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-extrabold uppercase tracking-widest text-primary-600 mb-2">Kelengkapan Kost</h2>
+                <p class="font-display text-3xl font-bold text-stone-900 sm:text-4xl">Fasilitas Kamar & Umum</p>
+                <div class="iron-divider mt-4"><i class="fa-solid fa-diamond text-[8px]"></i></div>
+                <p class="text-stone-600 mt-3 text-base">Seluruh fasilitas dirancang untuk menunjang kenyamanan dan kemudahan aktivitas harian Anda.</p>
+            </div>
+
+            <!-- Grid Categories -->
+            <div class="grid grid-cols-1 gap-10">
+                
+                <!-- Facilities Category 1: Fasilitas Kamar -->
+                <div class="bg-gradient-to-br from-stone-50 to-primary-50/60 p-8 rounded-3xl border border-stone-200/80 shadow-sm">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 bg-primary-600 text-white rounded-xl flex items-center justify-center text-xl font-bold shadow-md shadow-primary-600/30">
+                            <i class="fa-solid fa-bed"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-stone-900">Fasilitas Dalam Kamar</h3>
+                            <p class="text-xs text-stone-500">Pribadi untuk setiap penyewa</p>
+                        </div>
+                    </div>
+
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <li class="flex items-start gap-3 p-3 bg-white rounded-xl border border-stone-100 shadow-2xs">
+                            <i class="fa-solid fa-snowflake text-primary-600 mt-1"></i>
+                            <div>
+                                <h4 class="text-sm font-bold text-stone-800">Pendingin Ruangan (AC)</h4>
+                                <p class="text-xs text-stone-500">Tersedia pada tipe kamar AC</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3 p-3 bg-white rounded-xl border border-stone-100 shadow-2xs">
+                            <i class="fa-solid fa-fan text-primary-600 mt-1"></i>
+                            <div>
+                                <h4 class="text-sm font-bold text-stone-800">Pendingin Ruangan (Kipas)</h4>
+                                <p class="text-xs text-stone-500">Tersedia pada tipe kamar Kipas Angin</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3 p-3 bg-white rounded-xl border border-stone-100 shadow-2xs">
+                            <i class="fa-solid fa-mattress-pillow text-accent-600 mt-1"></i>
+                            <div>
+                                <h4 class="text-sm font-bold text-stone-800">Kasur Springbed</h4>
+                                <p class="text-xs text-stone-500">Sudah termasuk bantal & sprei, tersedia pada Tipe A</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3 p-3 bg-white rounded-xl border border-stone-100 shadow-2xs">
+                            <i class="fa-solid fa-bath text-primary-600 mt-1"></i>
+                            <div>
+                                <h4 class="text-sm font-bold text-stone-800">Kamar Mandi Dalam</h4>
+                                <p class="text-xs text-stone-500">Shower & closet jongkok/duduk sesuai tipe kamar</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3 p-3 bg-white rounded-xl border border-stone-100 shadow-2xs">
+                            <i class="fa-solid fa-shirt text-primary-600 mt-1"></i>
+                            <div>
+                                <h4 class="text-sm font-bold text-stone-800">Lemari Pakaian</h4>
+                                <p class="text-xs text-stone-500">Kapasitas penyimpanan yang cukup</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Facilities Category 2: Fasilitas Umum -->
+                <div class="bg-gradient-to-br from-stone-50 to-accent-50/70 p-8 rounded-3xl border border-stone-200/80 shadow-sm">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 bg-accent-600 text-white rounded-xl flex items-center justify-center text-xl font-bold shadow-md shadow-accent-600/30">
+                            <i class="fa-solid fa-building-user"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-stone-900">Fasilitas Umum & Bersama</h3>
+                            <p class="text-xs text-stone-500">Dapat diakses seluruh penghuni kos</p>
+                        </div>
+                    </div>
+
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <li class="flex items-start gap-3 p-3 bg-white rounded-xl border border-stone-100 shadow-2xs">
+                            <i class="fa-solid fa-wifi text-primary-600 mt-1"></i>
+                            <div>
+                                <h4 class="text-sm font-bold text-stone-800">Wi-Fi Up To 100Mbps</h4>
+                                <p class="text-xs text-stone-500">Gratis tanpa batas kuota</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3 p-3 bg-white rounded-xl border border-stone-100 shadow-2xs">
+                            <i class="fa-solid fa-utensils text-accent-600 mt-1"></i>
+                            <div>
+                                <h4 class="text-sm font-bold text-stone-800">Dapur Bersama</h4>
+                                <p class="text-xs text-stone-500">Kompor gas & wastafel</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3 p-3 bg-white rounded-xl border border-stone-100 shadow-2xs">
+                            <i class="fa-solid fa-motorcycle text-primary-600 mt-1"></i>
+                            <div>
+                                <h4 class="text-sm font-bold text-stone-800">Parkir Motor</h4>
+                                <p class="text-xs text-stone-500">Area parkir aman</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3 p-3 bg-white rounded-xl border border-stone-100 shadow-2xs">
+                            <i class="fa-solid fa-video text-primary-600 mt-1"></i>
+                            <div>
+                                <h4 class="text-sm font-bold text-stone-800">Keamanan CCTV 24/7</h4>
+                                <p class="text-xs text-stone-500">Memantau keamanan</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3 p-3 bg-white rounded-xl border border-stone-100 shadow-2xs">
+                            <i class="fa-solid fa-jug-detergent text-accent-600 mt-1"></i>
+                            <div>
+                                <h4 class="text-sm font-bold text-stone-800">Area Cuci & Jemur</h4>
+                                <p class="text-xs text-stone-500">Tersedia area jemuran atap</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3 p-3 bg-white rounded-xl border border-stone-100 shadow-2xs">
+                            <i class="fa-solid fa-faucet-drip text-primary-600 mt-1"></i>
+                            <div>
+                                <h4 class="text-sm font-bold text-stone-800">Air Bersih Melimpah</h4>
+                                <p class="text-xs text-stone-500">Sumber air sumur bor</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3 p-3 bg-white rounded-xl border border-stone-100 shadow-2xs">
+                            <i class="fa-solid fa-bolt text-accent-600 mt-1"></i>
+                            <div>
+                                <h4 class="text-sm font-bold text-stone-800">Listrik Pascabayar</h4>
+                                <p class="text-xs text-stone-500">Tagihan sesuai pemakaian</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3 p-3 bg-white rounded-xl border border-stone-100 shadow-2xs">
+                            <i class="fa-solid fa-couch text-primary-600 mt-1"></i>
+                            <div>
+                                <h4 class="text-sm font-bold text-stone-800">Ruang Tamu</h4>
+                                <p class="text-xs text-stone-500">Area santai & menerima tamu</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3 p-3 bg-white rounded-xl border border-stone-100 shadow-2xs">
+                            <i class="fa-solid fa-toilet text-primary-600 mt-1"></i>
+                            <div>
+                                <h4 class="text-sm font-bold text-stone-800">Kamar Mandi Luar</h4>
+                                <p class="text-xs text-stone-500">Bersih & rutin dibersihkan</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- TENTANG KAMI / ABOUT US SECTION -->
+    <section id="tentang" class="py-20 bg-white">
+        <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto">
+
+                <div class="text-center mb-10">
+                    <span class="text-xs font-extrabold uppercase tracking-widest text-primary-600 block mb-2">Profil Rumah Kost</span>
+                    <h2 class="font-display text-3xl sm:text-4xl font-bold text-stone-900 tracking-tight">Mengenal NURKHAER KOST</h2>
+                    <div class="iron-divider mt-4"><i class="fa-solid fa-diamond text-[8px]"></i></div>
+                </div>
+
+                <div class="space-y-5">
+                    <p class="text-stone-600 leading-relaxed">
+                        <strong>NURKHAER KOST</strong> hadir sebagai jawaban bagi Anda yang mencari hunian kos yang tidak hanya sekadar tempat tidur, tetapi juga tempat untuk beristirahat dengan tenang, aman, dan tenteram setelah beraktivitas seharian.
+                    </p>
+
+                    <p class="text-stone-600 leading-relaxed">
+                        Kami berkomitmen untuk terus menjaga kebersihan lingkungan kos, menyediakan fasilitas pendukung yang memadai, serta menciptakan iklim hunian yang ramah dan saling menghormati antar sesama penghuni kos.
+                    </p>
+                </div>
+
+                <!-- Badge Komitmen -->
+                <div class="mt-8 bg-primary-600 text-white rounded-2xl px-6 py-5 shadow-lg shadow-primary-600/20 flex items-center justify-center gap-4 text-center sm:text-left">
+                    <p class="font-display text-3xl sm:text-4xl font-bold leading-none">100%</p>
+                    <p class="text-xs font-semibold text-primary-100 uppercase tracking-wider max-w-[14rem]">Komitmen Kenyamanan Penghuni</p>
+                </div>
+
+                <!-- Rules List -->
+                <div class="mt-10">
+                    <h3 class="text-sm font-bold text-stone-900 uppercase tracking-wider mb-4 text-center">Ketentuan & Tata Tertib Utama:</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-stone-700">
+                        <div class="flex items-center gap-2 bg-stone-50 border border-stone-200/70 rounded-xl px-4 py-3">
+                            <i class="fa-solid fa-circle-check text-primary-600"></i>
+                            <span>Menjaga Kebersihan Bersama</span>
+                        </div>
+                        <div class="flex items-center gap-2 bg-stone-50 border border-stone-200/70 rounded-xl px-4 py-3">
+                            <i class="fa-solid fa-circle-check text-primary-600"></i>
+                            <span>Jam Menerima Tamu Sopan</span>
+                        </div>
+                        <div class="flex items-center gap-2 bg-stone-50 border border-stone-200/70 rounded-xl px-4 py-3">
+                            <i class="fa-solid fa-circle-check text-primary-600"></i>
+                            <span>Dilarang Merokok Di Dalam Kamar</span>
+                        </div>
+                        <div class="flex items-center gap-2 bg-stone-50 border border-stone-200/70 rounded-xl px-4 py-3">
+                            <i class="fa-solid fa-circle-check text-primary-600"></i>
+                            <span>Saling Menghormati Ketenangan</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- LOKASI & KONTAK / CONTACT & LOCATION SECTION -->
+    <section id="kontak" class="py-20 bg-stone-900 text-white relative overflow-hidden">
+        <!-- Accent Glow background -->
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-primary-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <h2 class="text-xs font-extrabold uppercase tracking-widest text-primary-400 mb-2">Hubungi Kami</h2>
+                <p class="font-display text-3xl font-bold text-white sm:text-4xl">Lokasi & Alamat Lengkap</p>
+                <div class="iron-divider mt-4"><i class="fa-solid fa-diamond text-[8px]"></i></div>
+                <p class="text-stone-400 mt-3 text-base">Silakan berkunjung langsung atau kontak pemilik melalui WhatsApp untuk tanya ketersediaan kamar.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                
+                <!-- Contact Info Card -->
+                <div class="lg:col-span-5 bg-stone-800/90 border border-stone-700 p-8 rounded-3xl flex flex-col justify-between shadow-xl backdrop-blur-md">
+                    <div class="space-y-6">
+                        <h3 class="text-xl font-bold text-white border-b border-stone-700 pb-4">Informasi Kontak</h3>
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-primary-500/10 border border-primary-500/20 text-primary-400 flex items-center justify-center shrink-0 text-lg">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-bold uppercase tracking-wider text-stone-400">Alamat Lengkap</h4>
+                                <p class="text-sm font-medium text-stone-200 mt-1">Griya Prajamukti, Kalisapu, Kec. Slawi, Kabupaten Tegal, Jawa Tengah 52416 (Dekat Universitas Bhamada Slawi)</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 text-lg">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-bold uppercase tracking-wider text-stone-400">Nomor WhatsApp / HP</h4>
+                                <p class="text-sm font-medium text-stone-200 mt-1">+62 857-4249-8196 (Pengelola Kos)</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-accent-500/10 border border-accent-500/20 text-accent-300 flex items-center justify-center shrink-0 text-lg">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-bold uppercase tracking-wider text-stone-400">Jam Operasional Survey</h4>
+                                <p class="text-sm font-medium text-stone-200 mt-1">Senin - Sabtu: 13:00 - 15:00 WIB</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Direct WA Call to action box -->
+                    <div class="mt-8 pt-6 border-t border-stone-700/80">
+                        <a href="https://wa.me/6285742498196?text=Halo%20Pengelola%20NURKHAER%20KOST,%20saya%20ingin%20menanyakan%20ketersediaan%20kamar." 
+                           target="_blank" 
+                           class="w-full inline-flex items-center justify-center gap-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3.5 px-6 rounded-xl transition-all shadow-lg shadow-emerald-600/30">
+                            <i class="fa-brands fa-whatsapp text-xl"></i>
+                            <span>Chat Langsung Pemilik</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Google Maps Embed Container -->
+                <div class="lg:col-span-7 rounded-3xl overflow-hidden border border-stone-700 min-h-[350px] lg:min-h-full shadow-xl">
+                    <iframe 
+                        title="Peta Lokasi Nurkhaer Kost" 
+                        src="https://maps.google.com/maps?q=-6.9923125,109.1211875(NURKHAER%20KOST)&hl=id&z=17&output=embed"
+                        class="w-full h-full min-h-[350px] border-0" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER SECTION -->
+    <footer class="bg-stone-950 text-stone-400 py-12 border-t border-stone-800">
+        <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <!-- Brand Info -->
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-primary-600 text-white rounded-xl flex items-center justify-center font-bold text-lg">
+                        <i class="fa-solid fa-house-user"></i>
+                    </div>
+                    <div>
+                        <span class="text-lg font-extrabold text-white tracking-tight">NURKHAER KOST</span>
+                        <p class="text-xs text-stone-500">Hunian Kos Nyaman, Bersih & Strategis</p>
+                    </div>
+                </div>
+
+                <!-- Quick Nav Links -->
+                <div class="flex flex-wrap justify-center gap-6 text-sm font-medium">
+                    <a href="#beranda" class="hover:text-primary-400 transition-colors">Beranda</a>
+                    <a href="#kamar" class="hover:text-primary-400 transition-colors">Kamar</a>
+                    <a href="#fasilitas" class="hover:text-primary-400 transition-colors">Fasilitas</a>
+                    <a href="#kontak" class="hover:text-primary-400 transition-colors">Kontak</a>
+                </div>
+
+                <!-- Copyright -->
+                <div class="text-xs text-stone-500 text-center md:text-right">
+                    <p>&copy; 2026 NURKHAER KOST. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING WHATSAPP BUTTON -->
+    <a href="https://wa.me/6285742498196?text=Halo%20NURKHAER%20KOST,%20saya%20tertarik%20dengan%20kamar%20kos%20Anda." 
+       target="_blank" 
+       title="Chat Via WhatsApp"
+       class="fixed bottom-6 right-6 z-40 bg-emerald-500 hover:bg-emerald-600 text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-xl hover:scale-110 transition-all duration-300">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span class="absolute -top-1 -right-1 flex h-4 w-4">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-4 w-4 bg-emerald-500"></span>
+        </span>
+    </a>
+
+    <!-- ROOM DETAIL MODAL POPUP -->
+    <div id="room-modal" class="fixed inset-0 z-50 hidden bg-stone-900/80 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative border border-stone-100 my-8">
+            <!-- Modal Close Button -->
+            <button onclick="closeRoomModal()" class="absolute top-4 right-4 z-10 w-10 h-10 bg-white/90 rounded-full flex items-center justify-center text-stone-700 hover:text-stone-900 shadow-md hover:bg-white transition-all">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <!-- Modal Content Dynamic -->
+            <div id="modal-content-body">
+                <!-- Dynamically populated via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL LOGIN PENGELOLA -->
+    <div id="login-modal" class="fixed inset-0 z-[60] hidden bg-stone-900/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full shadow-2xl border border-stone-100 relative overflow-hidden">
+            <button onclick="closeLoginModal()" class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full flex items-center justify-center text-stone-500 hover:text-stone-900 hover:bg-stone-100 transition-all">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <!-- Header Modal Login -->
+            <div class="bg-gradient-to-br from-primary-600 to-primary-500 px-8 pt-9 pb-8 text-white">
+                <div class="w-14 h-14 bg-white/20 border border-white/30 rounded-2xl flex items-center justify-center text-2xl mb-4">
+                    <i class="fa-solid fa-user-shield"></i>
+                </div>
+                <h3 class="text-2xl font-extrabold tracking-tight">Login Pengelola</h3>
+                <p class="text-sm text-primary-50/90 mt-1">Khusus pemilik & pengelola NURKHAER KOST.</p>
+            </div>
+
+            <!-- Form Login -->
+            <form id="login-form" class="p-8 space-y-5" autocomplete="off">
+                <div>
+                    <label for="login-username" class="block text-xs font-bold uppercase tracking-wider text-stone-500 mb-2">Nama Pengguna</label>
+                    <div class="relative">
+                        <i class="fa-solid fa-user absolute left-4 top-1/2 -translate-y-1/2 text-stone-400 text-sm"></i>
+                        <input type="text" id="login-username" name="username" placeholder="Masukkan username"
+                               class="w-full pl-11 pr-4 py-3 rounded-xl border border-stone-300 bg-stone-50 text-sm font-medium text-stone-800 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all">
+                    </div>
+                </div>
+
+                <div>
+                    <label for="login-password" class="block text-xs font-bold uppercase tracking-wider text-stone-500 mb-2">Kata Sandi</label>
+                    <div class="relative">
+                        <i class="fa-solid fa-key absolute left-4 top-1/2 -translate-y-1/2 text-stone-400 text-sm"></i>
+                        <input type="password" id="login-password" name="password" placeholder="Masukkan kata sandi"
+                               class="w-full pl-11 pr-11 py-3 rounded-xl border border-stone-300 bg-stone-50 text-sm font-medium text-stone-800 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all">
+                        <button type="button" onclick="togglePasswordVisibility()" class="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-lg text-stone-400 hover:text-stone-700 hover:bg-stone-100 transition-all">
+                            <i class="fa-solid fa-eye text-sm" id="password-toggle-icon"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Pesan Error -->
+                <div id="login-error" class="hidden items-center gap-2 bg-rose-50 border border-rose-200 text-rose-700 text-sm font-semibold px-4 py-3 rounded-xl">
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                    <span id="login-error-text">Username atau kata sandi salah.</span>
+                </div>
+
+                <label class="flex items-center gap-2 text-sm text-stone-600 font-medium cursor-pointer select-none">
+                    <input type="checkbox" id="login-remember" class="w-4 h-4 rounded border-stone-300 text-primary-600 focus:ring-primary-500">
+                    <span>Biarkan saya tetap masuk di perangkat ini</span>
+                </label>
+
+                <button type="submit"
+                        class="w-full inline-flex items-center justify-center gap-2 bg-primary-600 hover:bg-primary-700 text-white font-bold py-3.5 rounded-xl shadow-lg shadow-primary-600/25 transition-all hover:-translate-y-0.5">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                    <span>Masuk ke Panel</span>
+                </button>
+
+                <p class="text-xs text-stone-400 text-center leading-relaxed">
+                    Halaman ini hanya untuk pengelola kos. Penghuni atau calon penyewa silakan menghubungi pemilik melalui WhatsApp.
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- PANEL DASHBOARD PENGELOLA -->
+    <div id="admin-panel" class="fixed inset-0 z-[70] hidden bg-stone-100 overflow-y-auto">
+        <!-- Header Panel -->
+        <header class="sticky top-0 z-10 bg-stone-900 text-white border-b border-stone-800">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between gap-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-primary-600 rounded-xl flex items-center justify-center text-lg">
+                        <i class="fa-solid fa-gauge-high"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-base sm:text-lg font-extrabold tracking-tight leading-none">Panel Pengelola</h2>
+                        <p class="text-xs text-stone-400 mt-1">Masuk sebagai <span id="admin-username" class="text-primary-400 font-semibold">pengelola</span></p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button onclick="closeAdminPanel()" class="inline-flex items-center gap-2 border border-stone-700 hover:bg-stone-800 text-stone-200 font-semibold px-4 py-2.5 rounded-xl text-sm transition-all">
+                        <i class="fa-solid fa-globe text-sm"></i>
+                        <span class="hidden sm:inline">Lihat Situs</span>
+                    </button>
+                    <button onclick="logoutAdmin()" class="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-500 text-white font-semibold px-4 py-2.5 rounded-xl text-sm transition-all">
+                        <i class="fa-solid fa-right-from-bracket text-sm"></i>
+                        <span class="hidden sm:inline">Keluar</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+
+            <!-- Ringkasan Statistik -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="bg-white p-5 rounded-2xl border border-stone-200 shadow-sm">
+                    <div class="w-10 h-10 rounded-xl bg-stone-100 text-stone-600 flex items-center justify-center mb-3"><i class="fa-solid fa-door-open"></i></div>
+                    <p class="text-2xl font-extrabold text-stone-900" id="stat-total">0</p>
+                    <p class="text-xs font-semibold text-stone-500 mt-1">Total Kamar</p>
+                </div>
+                <div class="bg-white p-5 rounded-2xl border border-stone-200 shadow-sm">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center mb-3"><i class="fa-solid fa-circle-check"></i></div>
+                    <p class="text-2xl font-extrabold text-emerald-600" id="stat-tersedia">0</p>
+                    <p class="text-xs font-semibold text-stone-500 mt-1">Kamar Tersedia</p>
+                </div>
+                <div class="bg-white p-5 rounded-2xl border border-stone-200 shadow-sm">
+                    <div class="w-10 h-10 rounded-xl bg-stone-200 text-stone-700 flex items-center justify-center mb-3"><i class="fa-solid fa-user-lock"></i></div>
+                    <p class="text-2xl font-extrabold text-stone-700" id="stat-penuh">0</p>
+                    <p class="text-xs font-semibold text-stone-500 mt-1">Kamar Tersewa</p>
+                </div>
+                <div class="bg-white p-5 rounded-2xl border border-stone-200 shadow-sm">
+                    <div class="w-10 h-10 rounded-xl bg-accent-100 text-accent-600 flex items-center justify-center mb-3"><i class="fa-solid fa-sack-dollar"></i></div>
+                    <p class="text-2xl font-extrabold text-stone-900" id="stat-pendapatan">Rp 0</p>
+                    <p class="text-xs font-semibold text-stone-500 mt-1">Pendapatan Berjalan / Bln</p>
+                </div>
+            </div>
+
+            <!-- Kelola Kamar -->
+            <div class="bg-white rounded-2xl border border-stone-200 shadow-sm overflow-hidden">
+                <div class="px-6 py-5 border-b border-stone-100 flex flex-wrap items-center justify-between gap-3">
+                    <div>
+                        <h3 class="text-lg font-bold text-stone-900">Kelola Ketersediaan & Harga Kamar</h3>
+                        <p class="text-sm text-stone-500 mt-0.5">Perubahan langsung tampil di halaman publik setelah disimpan.</p>
+                    </div>
+                    <button onclick="resetRoomOverrides()" class="inline-flex items-center gap-2 text-sm font-semibold text-stone-600 hover:text-rose-600 border border-stone-200 hover:border-rose-300 px-4 py-2 rounded-xl transition-all">
+                        <i class="fa-solid fa-rotate-left text-xs"></i>
+                        <span>Kembalikan Data Awal</span>
+                    </button>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full min-w-[640px] text-sm">
+                        <thead class="bg-stone-50 text-stone-500">
+                            <tr>
+                                <th class="text-left font-bold uppercase text-xs tracking-wider px-6 py-3">Kamar</th>
+                                <th class="text-left font-bold uppercase text-xs tracking-wider px-6 py-3">Status</th>
+                                <th class="text-left font-bold uppercase text-xs tracking-wider px-6 py-3">Harga / Bulan (Rp)</th>
+                                <th class="text-right font-bold uppercase text-xs tracking-wider px-6 py-3">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-room-rows" class="divide-y divide-stone-100"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Catatan Keamanan -->
+            <div class="bg-amber-50 border border-amber-200 text-amber-900 rounded-2xl p-5 flex items-start gap-3">
+                <i class="fa-solid fa-triangle-exclamation mt-0.5"></i>
+                <div class="text-sm leading-relaxed">
+                    <strong class="block mb-1">Catatan penting soal keamanan</strong>
+                    Situs ini masih berupa halaman statis, sehingga login diproses di sisi browser dan data tersimpan lokal di perangkat ini saja. Cocok untuk demo internal, tetapi belum aman untuk publik. Untuk pengelolaan sungguhan, diperlukan server dengan basis data dan autentikasi.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- NOTIFIKASI TOAST -->
+    <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-[80] hidden items-center gap-3 bg-stone-900 text-white text-sm font-semibold px-5 py-3.5 rounded-xl shadow-2xl">
+        <i class="fa-solid fa-circle-check text-emerald-400" id="toast-icon"></i>
+        <span id="toast-text">Tersimpan</span>
+    </div>
+
+    <script>
+        // Data Kamar Mock Data
+        const roomData = {
+            1: {
+                title: "Kamar VIP AC + KM Dalam",
+                type: "Tipe A - Deluxe",
+                price: "Rp 1.500.000",
+                period: "per bulan",
+                size: "3.5 x 4.0 Meter",
+                status: "Tersedia",
+                statusBg: "bg-emerald-500",
+                image: "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=1000&q=80",
+                description: "Kamar tipe VIP berada di lantai 1 dengan pencahayaan yang sangat alami. Memiliki ventilasi udara yang baik, kasur empuk berkualitas tinggi, air conditioning hemat listrik, dan kamar mandi dalam lengkap dengan kran shower.",
+                facilities: [
+                    "Air Conditioning (AC)",
+                    "Kamar Mandi Dalam (Shower)",
+                    "Kasur Springbed + Sprei",
+                    "Meja & Kursi Kerja",
+                    "Lemari Baju 2 Pintu",
+                    "Cermin Dinding",
+                    "Wi-Fi High-Speed 100Mbps",
+                    "Listrik Pascabayar"
+                ],
+                waMessage: "Halo%20NURKHAER%20KOST,%20saya%20berminat%20dengan%20Kamar%20VIP%20AC%20(Tipe%20A)%20seharga%20Rp%201.500.000/bulan.%20Apakah%20masih%20tersedia?"
+            },
+            2: {
+                title: "Kamar Standard AC Minimalis",
+                type: "Tipe B - Standard",
+                price: "Rp 1.200.000",
+                period: "per bulan",
+                size: "3.0 x 3.5 Meter",
+                status: "Tersedia",
+                statusBg: "bg-emerald-500",
+                image: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=1000&q=80",
+                description: "Kamar minimalis modern berlokasi di lantai 2. Sangat efisien, tenang, dan nyaman digunakan untuk mahasiswa atau pekerja kantor yang mendambakan lingkungan kondusif.",
+                facilities: [
+                    "Air Conditioning (AC)",
+                    "Kamar Mandi Dalam",
+                    "Kasur Busa Inoac / Springbed",
+                    "Meja Belajar Minimalis",
+                    "Lemari Pakaian",
+                    "Wi-Fi Gratis",
+                    "Ventilasi & Jendela"
+                ],
+                waMessage: "Halo%20NURKHAER%20KOST,%20saya%20berminat%20dengan%20Kamar%20Standard%20AC%20(Tipe%20B)%20seharga%20Rp%201.200.000/bulan."
+            },
+            3: {
+                title: "Kamar Standard Non-AC",
+                type: "Tipe C - Hemat",
+                price: "Rp 850.000",
+                period: "per bulan",
+                size: "3.0 x 3.0 Meter",
+                status: "Tersedia",
+                statusBg: "bg-emerald-500",
+                image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1000&q=80",
+                description: "Kamar ekonomis yang sejuk dengan sirkulasi jendela luar. Solusi tepat bagi yang menginginkan kos hemat tanpa mengurangi rasa kenyamanan dan fasilitas kebersihan umum.",
+                facilities: [
+                    "Kipas Angin Dinding",
+                    "Kamar Mandi Luar (Bersih)",
+                    "Kasur Single",
+                    "Meja Belajar Lesehan/Kecil",
+                    "Lemari Baju Compact",
+                    "Wi-Fi Gratis 100Mbps"
+                ],
+                waMessage: "Halo%20NURKHAER%20KOST,%20saya%20ingin%20tanya%20Kamar%20Standard%20Non-AC%20(Tipe%20C)%20seharga%20Rp%20850.000/bulan."
+            },
+            4: {
+                title: "Kamar Exclusive + Balkon Pribadi",
+                type: "Tipe Suite",
+                price: "Rp 1.800.000",
+                period: "per bulan",
+                size: "4.0 x 4.0 Meter",
+                status: "Penuh",
+                statusBg: "bg-stone-800",
+                image: "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1000&q=80",
+                description: "Kamar terbaik dengan akses khusus ke balkon pribadi. Menyuguhkan suasana luas dan udara segar setiap hari. Cocok untuk penghuni yang mengutamakan privasi ekstra.",
+                facilities: [
+                    "Balkon Pribadi & Pemandangan",
+                    "Air Conditioning (AC)",
+                    "Kamar Mandi Dalam + Water Heater",
+                    "Kasur Queen Size",
+                    "Smart TV 32 Inch",
+                    "Meja Kerja & Kursi Ergonomis",
+                    "Lemari Baju Jati 3 Pintu",
+                    "Wi-Fi High-Speed Dedicated"
+                ],
+                waMessage: "Halo%20NURKHAER%20KOST,%20saya%20ingin%20masuk%20waiting%20list%20untuk%20Kamar%20Exclusive%20Balkon."
+            }
+        };
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if(mobileMenu.classList.contains('hidden')) {
+                menuIcon.className = 'fa-solid fa-bars text-2xl';
+            } else {
+                menuIcon.className = 'fa-solid fa-xmark text-2xl';
+            }
+        });
+
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.className = 'fa-solid fa-bars text-2xl';
+            });
+        });
+
+        // Filter Rooms Logic
+        function filterRooms(category) {
+            const buttons = document.querySelectorAll('#room-filters .filter-btn');
+            buttons.forEach(btn => {
+                if (btn.getAttribute('data-category') === category) {
+                    btn.className = 'filter-btn active bg-primary-600 text-white font-semibold px-5 py-2.5 rounded-full text-sm transition-all shadow-sm';
+                } else {
+                    btn.className = 'filter-btn bg-white hover:bg-stone-100 text-stone-700 font-semibold px-5 py-2.5 rounded-full text-sm border border-stone-200 transition-all';
+                }
+            });
+
+            const cards = document.querySelectorAll('.room-card');
+            cards.forEach(card => {
+                const tags = card.getAttribute('data-tags');
+                if (category === 'all' || tags.includes(category)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Open Room Detail Modal
+        function openRoomModal(id) {
+            const data = roomData[id];
+            if (!data) return;
+
+            const modal = document.getElementById('room-modal');
+            const content = document.getElementById('modal-content-body');
+
+            const facilitiesHTML = data.facilities.map(item => `
+                <li class="flex items-center gap-2 text-sm text-stone-700 bg-stone-50 p-2.5 rounded-xl border border-stone-100">
+                    <i class="fa-solid fa-circle-check text-primary-600"></i>
+                    <span>${item}</span>
+                </li>
+            `).join('');
+
+            content.innerHTML = `
+                <div class="relative h-72 sm:h-80 overflow-hidden">
+                    <img src="${data.image}" alt="${data.title}" class="w-full h-full object-cover">
+                    <span class="absolute top-4 left-4 ${data.statusBg} text-white text-xs font-bold px-3 py-1.5 rounded-full uppercase shadow-md">
+                        Status: ${data.status}
+                    </span>
+                </div>
+                <div class="p-6 sm:p-8 space-y-6">
+                    <div>
+                        <span class="text-xs font-bold text-primary-600 uppercase tracking-wider">${data.type}</span>
+                        <h3 class="text-2xl font-extrabold text-stone-900 mt-1">${data.title}</h3>
+                        <p class="text-xs text-stone-500 font-semibold mt-1"><i class="fa-solid fa-ruler-combined text-primary-600 mr-1"></i> Ukuran: ${data.size}</p>
+                    </div>
+
+                    <div>
+                        <h4 class="text-xs font-extrabold uppercase text-stone-400 tracking-wider mb-2">Deskripsi Kamar</h4>
+                        <p class="text-stone-600 text-sm leading-relaxed">${data.description}</p>
+                    </div>
+
+                    <div>
+                        <h4 class="text-xs font-extrabold uppercase text-stone-400 tracking-wider mb-3">Fasilitas Kamar Ini</h4>
+                        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                            ${facilitiesHTML}
+                        </ul>
+                    </div>
+
+                    <div class="pt-6 border-t border-stone-100 flex flex-col sm:flex-row items-center justify-between gap-4">
+                        <div>
+                            <span class="text-xs text-stone-400 block font-medium">Harga Sewa Resmi</span>
+                            <span class="text-2xl font-extrabold text-stone-900">${data.price} <span class="text-sm font-normal text-stone-500">${data.period}</span></span>
+                        </div>
+                        <a href="https://wa.me/6285742498196?text=${data.waMessage}" 
+                           target="_blank" 
+                           class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-3.5 rounded-xl shadow-md transition-all">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                            <span>Pesan via WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+            `;
+
+            modal.classList.remove('hidden');
+            document.body.classList.add('modal-active');
+        }
+
+        // Close Room Modal
+        function closeRoomModal() {
+            const modal = document.getElementById('room-modal');
+            modal.classList.add('hidden');
+            document.body.classList.remove('modal-active');
+        }
+
+        // Close modal when clicking outside box
+        document.getElementById('room-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeRoomModal();
+            }
+        });
+
+        /* =========================================================
+           AREA PENGELOLA: LOGIN & PANEL ADMIN
+           Catatan: situs ini statis, jadi verifikasi login berjalan
+           di browser dan data tersimpan pada perangkat pengguna.
+           ========================================================= */
+
+        // Akun pengelola (ubah sesuai kebutuhan pemilik kos)
+        const ADMIN_ACCOUNT = {
+            username: 'pengelola',
+            password: 'nurkhaer2026',
+            displayName: 'Pengelola Nurkhaer'
+        };
+
+        const SESSION_KEY = 'nurkhaer_admin_session';
+        const OVERRIDE_KEY = 'nurkhaer_room_overrides';
+
+        // ---------- Utilitas ----------
+        function formatRupiah(value) {
+            return 'Rp ' + Number(value || 0).toLocaleString('id-ID');
+        }
+
+        function parseRupiah(text) {
+            return Number(String(text).replace(/[^0-9]/g, '')) || 0;
+        }
+
+        function showToast(message, type) {
+            const toast = document.getElementById('toast');
+            const icon = document.getElementById('toast-icon');
+            document.getElementById('toast-text').innerText = message;
+            icon.className = type === 'error'
+                ? 'fa-solid fa-circle-exclamation text-rose-400'
+                : 'fa-solid fa-circle-check text-emerald-400';
+
+            toast.classList.remove('hidden');
+            toast.classList.add('flex');
+            clearTimeout(showToast.timer);
+            showToast.timer = setTimeout(() => {
+                toast.classList.add('hidden');
+                toast.classList.remove('flex');
+            }, 2600);
+        }
+
+        function isLoggedIn() {
+            return !!(sessionStorage.getItem(SESSION_KEY) || localStorage.getItem(SESSION_KEY));
+        }
+
+        function getSessionUser() {
+            const raw = sessionStorage.getItem(SESSION_KEY) || localStorage.getItem(SESSION_KEY);
+            try {
+                return raw ? JSON.parse(raw).displayName : '';
+            } catch (e) {
+                return '';
+            }
+        }
+
+        // ---------- Modal Login ----------
+        function handleAdminEntry() {
+            document.getElementById('mobile-menu').classList.add('hidden');
+            document.getElementById('menu-icon').className = 'fa-solid fa-bars text-2xl';
+
+            if (isLoggedIn()) {
+                openAdminPanel();
+            } else {
+                openLoginModal();
+            }
+        }
+
+        function openLoginModal() {
+            const modal = document.getElementById('login-modal');
+            modal.classList.remove('hidden');
+            document.body.classList.add('modal-active');
+            hideLoginError();
+            document.getElementById('login-form').reset();
+            setTimeout(() => document.getElementById('login-username').focus(), 80);
+        }
+
+        function closeLoginModal() {
+            document.getElementById('login-modal').classList.add('hidden');
+            document.body.classList.remove('modal-active');
+        }
+
+        function togglePasswordVisibility() {
+            const input = document.getElementById('login-password');
+            const icon = document.getElementById('password-toggle-icon');
+            const hidden = input.type === 'password';
+            input.type = hidden ? 'text' : 'password';
+            icon.className = hidden ? 'fa-solid fa-eye-slash text-sm' : 'fa-solid fa-eye text-sm';
+        }
+
+        function showLoginError(message) {
+            const box = document.getElementById('login-error');
+            document.getElementById('login-error-text').innerText = message;
+            box.classList.remove('hidden');
+            box.classList.add('flex');
+        }
+
+        function hideLoginError() {
+            const box = document.getElementById('login-error');
+            box.classList.add('hidden');
+            box.classList.remove('flex');
+        }
+
+        document.getElementById('login-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const username = document.getElementById('login-username').value.trim();
+            const password = document.getElementById('login-password').value;
+            const remember = document.getElementById('login-remember').checked;
+
+            if (!username || !password) {
+                showLoginError('Username dan kata sandi wajib diisi.');
+                return;
+            }
+
+            if (username.toLowerCase() !== ADMIN_ACCOUNT.username || password !== ADMIN_ACCOUNT.password) {
+                showLoginError('Username atau kata sandi salah. Silakan coba lagi.');
+                return;
+            }
+
+            const session = JSON.stringify({
+                username: ADMIN_ACCOUNT.username,
+                displayName: ADMIN_ACCOUNT.displayName,
+                loginAt: new Date().toISOString()
+            });
+
+            // "Ingat saya" memakai localStorage, selain itu hanya bertahan satu sesi tab
+            (remember ? localStorage : sessionStorage).setItem(SESSION_KEY, session);
+
+            hideLoginError();
+            closeLoginModal();
+            updateNavLoginState();
+            openAdminPanel();
+            showToast('Berhasil masuk. Selamat datang, ' + ADMIN_ACCOUNT.displayName + '.');
+        });
+
+        function logoutAdmin() {
+            sessionStorage.removeItem(SESSION_KEY);
+            localStorage.removeItem(SESSION_KEY);
+            closeAdminPanel();
+            updateNavLoginState();
+            showToast('Anda telah keluar dari panel pengelola.');
+        }
+
+        function updateNavLoginState() {
+            const loggedIn = isLoggedIn();
+            const label = loggedIn ? 'Panel Pengelola' : 'Login Pengelola';
+            const icon = loggedIn ? 'fa-solid fa-gauge-high text-sm' : 'fa-solid fa-lock text-sm';
+
+            document.getElementById('login-nav-label').innerText = label;
+            document.getElementById('login-nav-icon').className = icon;
+            document.getElementById('login-nav-label-mobile').innerText = label;
+            document.getElementById('login-nav-icon-mobile').className = icon;
+        }
+
+        // ---------- Panel Pengelola ----------
+        function openAdminPanel() {
+            if (!isLoggedIn()) {
+                openLoginModal();
+                return;
+            }
+            document.getElementById('admin-username').innerText = getSessionUser() || ADMIN_ACCOUNT.displayName;
+            document.getElementById('admin-panel').classList.remove('hidden');
+            document.body.classList.add('modal-active');
+            renderAdminRooms();
+        }
+
+        function closeAdminPanel() {
+            document.getElementById('admin-panel').classList.add('hidden');
+            document.body.classList.remove('modal-active');
+        }
+
+        function renderAdminRooms() {
+            const tbody = document.getElementById('admin-room-rows');
+            tbody.innerHTML = Object.keys(roomData).map(id => {
+                const room = roomData[id];
+                const tersedia = room.status === 'Tersedia';
+                return `
+                    <tr class="hover:bg-stone-50/80 transition-colors">
+                        <td class="px-6 py-4">
+                            <div class="flex items-center gap-3">
+                                <img src="${room.image}" alt="${room.title}" class="w-12 h-12 rounded-xl object-cover border border-stone-200">
+                                <div>
+                                    <p class="font-bold text-stone-900 leading-tight">${room.title}</p>
+                                    <p class="text-xs text-stone-500 mt-0.5">${room.type} &middot; ${room.size}</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="px-6 py-4">
+                            <select id="admin-status-${id}" class="w-36 px-3 py-2 rounded-xl border border-stone-300 bg-white text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-primary-500">
+                                <option value="Tersedia" ${tersedia ? 'selected' : ''}>Tersedia</option>
+                                <option value="Penuh" ${tersedia ? '' : 'selected'}>Penuh / Tersewa</option>
+                            </select>
+                        </td>
+                        <td class="px-6 py-4">
+                            <input type="number" min="0" step="50000" id="admin-price-${id}" value="${parseRupiah(room.price)}"
+                                   class="w-40 px-3 py-2 rounded-xl border border-stone-300 bg-white text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-primary-500">
+                        </td>
+                        <td class="px-6 py-4 text-right">
+                            <button onclick="saveRoomChanges('${id}')" class="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white font-semibold px-4 py-2 rounded-xl text-sm transition-all">
+                                <i class="fa-solid fa-floppy-disk text-xs"></i>
+                                <span>Simpan</span>
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+
+            updateAdminStats();
+        }
+
+        function updateAdminStats() {
+            const ids = Object.keys(roomData);
+            const tersedia = ids.filter(id => roomData[id].status === 'Tersedia').length;
+            const penuh = ids.length - tersedia;
+            const pendapatan = ids
+                .filter(id => roomData[id].status !== 'Tersedia')
+                .reduce((total, id) => total + parseRupiah(roomData[id].price), 0);
+
+            document.getElementById('stat-total').innerText = ids.length;
+            document.getElementById('stat-tersedia').innerText = tersedia;
+            document.getElementById('stat-penuh').innerText = penuh;
+            document.getElementById('stat-pendapatan').innerText = formatRupiah(pendapatan);
+        }
+
+        // ---------- Penyimpanan & Sinkronisasi Data Kamar ----------
+        function getOverrides() {
+            try {
+                return JSON.parse(localStorage.getItem(OVERRIDE_KEY)) || {};
+            } catch (e) {
+                return {};
+            }
+        }
+
+        function saveRoomChanges(id) {
+            const status = document.getElementById('admin-status-' + id).value;
+            const price = Number(document.getElementById('admin-price-' + id).value);
+
+            if (!price || price <= 0) {
+                showToast('Harga sewa harus diisi dengan angka yang benar.', 'error');
+                return;
+            }
+
+            const overrides = getOverrides();
+            overrides[id] = { status: status, price: price };
+            localStorage.setItem(OVERRIDE_KEY, JSON.stringify(overrides));
+
+            applyRoomOverrides();
+            renderAdminRooms();
+            showToast('Data "' + roomData[id].title + '" berhasil diperbarui.');
+        }
+
+        function resetRoomOverrides() {
+            if (!confirm('Kembalikan seluruh status dan harga kamar ke data awal?')) return;
+            localStorage.removeItem(OVERRIDE_KEY);
+            location.reload();
+        }
+
+        function applyRoomOverrides() {
+            const overrides = getOverrides();
+
+            Object.keys(roomData).forEach(id => {
+                const saved = overrides[id];
+                if (saved) {
+                    roomData[id].status = saved.status;
+                    roomData[id].price = formatRupiah(saved.price);
+                }
+                roomData[id].statusBg = roomData[id].status === 'Tersedia' ? 'bg-emerald-500' : 'bg-stone-800';
+
+                const card = document.querySelector('.room-card[data-room-id="' + id + '"]');
+                if (!card) return;
+
+                const tersedia = roomData[id].status === 'Tersedia';
+                const badge = card.querySelector('.room-status-badge');
+                const priceEl = card.querySelector('.room-price');
+
+                if (badge) {
+                    badge.innerText = tersedia ? 'Tersedia' : 'Penuh / Tersewa';
+                    badge.classList.toggle('bg-emerald-500', tersedia);
+                    badge.classList.toggle('bg-stone-800', !tersedia);
+                }
+                if (priceEl) priceEl.innerText = roomData[id].price;
+
+                card.classList.toggle('opacity-90', !tersedia);
+
+                // Selaraskan tag agar filter "Status: Tersedia" tetap akurat
+                const tags = card.getAttribute('data-tags')
+                    .replace(/\b(tersedia|penuh)\b/g, '')
+                    .trim()
+                    .replace(/\s+/g, ' ');
+                card.setAttribute('data-tags', (tags + ' ' + (tersedia ? 'tersedia' : 'penuh')).trim());
+            });
+        }
+
+        // ---------- Inisialisasi ----------
+        document.getElementById('login-modal').addEventListener('click', function (e) {
+            if (e.target === this) closeLoginModal();
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key !== 'Escape') return;
+            if (!document.getElementById('login-modal').classList.contains('hidden')) closeLoginModal();
+            if (!document.getElementById('room-modal').classList.contains('hidden')) closeRoomModal();
+        });
+
+        applyRoomOverrides();
+        updateNavLoginState();
+    </script>
+</body>
+</html>
